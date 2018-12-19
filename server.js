@@ -6,7 +6,7 @@ const {pushMessage, replyMessage} = require('./api/messaging-api');
 const {Users} = require('./utils/users');
 const {Messages} = require('./utils/messages');
 var users = new Users();
-var Messages = new Messages();
+// var Messages = new Messages();
 
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -45,7 +45,7 @@ app.post("/webhook", (req, res) => {
     }
     else if (type == 'message') {
         var text = req.body.events[0].message.text.replace(/\s+/g, "");
-        Messages.addMessage(text, userId);
+        // Messages.addMessage(text, userId);
 
         if (typeof text !== 'undefined') {
             var replyText = sendMessage(text.toLowerCase());
