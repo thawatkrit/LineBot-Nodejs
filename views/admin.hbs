@@ -19,14 +19,7 @@
         })
         .then(function(data) {
             var users = data.map(d => d.userId).filter((value, index, self) => self.indexOf(value) === index);
-            var messages = [];
-            for(let i = 0; i < users.length; i++) {
-                messages.users[i] = data.map(d => {
-                    if (d.userId == users[i]) {
-                        return d.text;
-                    }
-                });
-            }
+            
             for(let i = 0; i < data.length; i++) {
                 outputHTML.innerHTML += `<h1>${data.userId}</h1>
                                         <p>${data.text}</p>`;
