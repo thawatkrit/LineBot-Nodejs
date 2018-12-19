@@ -7,11 +7,14 @@ class Messages {
         this.messages.push(message);
         return message;
     }
-    getMessages (userId) {
+    getMessagesById (userId) {
         var messages = this.messages.filter((message) => message.userId === userId);
         var textArray = messages.map((message) => message.text);
 
-        return messages;
+        return textArray;
+    }
+    getMessages() {
+        return this.messages;
     }
 }
 
