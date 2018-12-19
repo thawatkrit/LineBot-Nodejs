@@ -19,11 +19,11 @@ app.get("/", (req, res) => {
     res.render('index.hbs');
 });
 
-app.get("/admin", (req, res) => {
-    res.render('admin.hbs', {
-        text: Messages.getMessages('U1cdfde31d77b135318bd76d016f834a7')[0]
-    });
-});
+// app.get("/admin", (req, res) => {
+//     res.render('admin.hbs', {
+//         text: Messages.getMessages('U1cdfde31d77b135318bd76d016f834a7')[0]
+//     });
+// });
 
 app.post("/push", (req, res) => {
     var data = req.body;
