@@ -1,6 +1,6 @@
-fetch('https://protected-refuge-15433.herokuapp.com/api/users')
+fetch('/api/users')
     .then(function(response) {
-    return response.json();
+        return response.json();
     })
     .then(function(data) {
         var userId = data.map(d => {
