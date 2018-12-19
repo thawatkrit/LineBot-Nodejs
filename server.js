@@ -19,10 +19,8 @@ app.get("/", (req, res) => {
     res.render('index.hbs');
 });
 
-app.get("/admin", (req, res) => {
-    res.render('admin.hbs', {
-        text: messages.getMessages('U1cdfde31d77b135318bd76d016f834a7')[0]
-    });
+app.get("/users", (req, res) => {
+    return res.send(messages.getMessages);
 });
 
 app.post("/push", (req, res) => {
