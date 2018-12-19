@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const {sendMessage} = require('./words/send-message');
-const {pushMessage, replyMessage, leaveGroup} = require('./api/messaging-api');
+const {pushMessage, replyMessage} = require('./api/messaging-api');
+const {Users} = require('./utils/users');
+var users = new Users();
 
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,13 +20,10 @@ app.get("/", (req, res) => {
 app.post("/webhook", (req, res) => {
     var type = req.body.events[0].type;
     var replyToken = req.body.events[0].replyToken;
+    var userId = req.body.events[0].source.userId
+    users.addUser(userId);
 
-    if (type == 'join') {
-        var groupId = req.body.events[0].source.groupId;
-
-    }
-    else if (type == 'follow') {
-        var userId = req.body.events[0].source.userId
+    if (type == 'follow') {
         pushMessage(userId, 'สวัสดีครับ');
     }
     else if (type == 'message') {
@@ -32,21 +31,7 @@ app.post("/webhook", (req, res) => {
 
         if (typeof text !== 'undefined') {
             var replyText = sendMessage(text.toLowerCase());
-            var sourceType = req.body.events[0].source.type;
-
-            if (sourceType === 'user') {
-                var userId = req.body.events[0].source.userId;
-                replyMessage(replyToken, replyText);
-            }
-            else {
-                var groupId = req.body.events[0].source.groupId;
-    
-                if (replyText === 'exit') {
-                    leaveGroup(groupId);
-                } else {
-                    replyMessage(replyToken, replyText);
-                }
-            }
+            replyMessage(replyToken, users.getUsers());
         }
     }
     res.sendStatus(200)
