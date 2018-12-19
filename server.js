@@ -25,9 +25,7 @@ app.get("/admin", (req, res) => {
 });
 
 app.get("/admin/advanced", (req, res) => {
-    setInterval(() => {
-        res.render('admin.hbs');
-    }, 2000);
+    res.render('admin-advanced.hbs');
 });
 
 app.get("/api/messages", (req, res) => {
