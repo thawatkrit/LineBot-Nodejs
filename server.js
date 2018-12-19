@@ -43,16 +43,13 @@ app.post("/webhook", (req, res) => {
     var userId = req.body.events[0].source.userId
     users.addUser(userId);
 
-    if (type == 'follow') {
-        pushMessage(userId, 'สวัสดีครับ');
-    }
-    else if (type == 'message') {
+    if (type == 'message') {
         var text = req.body.events[0].message.text.replace(/\s+/g, "");
         messages.addMessage(text, userId);
 
         if (typeof text !== 'undefined') {
             var replyText = sendMessage(text.toLowerCase());
-            replyMessage(replyToken, users.getUsers().length);
+            replyMessage(replyToken, replyText);
         }
     }
     res.sendStatus(200)
