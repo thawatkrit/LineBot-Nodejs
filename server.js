@@ -24,6 +24,12 @@ app.get("/admin", (req, res) => {
     res.render('admin.hbs');
 });
 
+app.get("/admin/advanced", (req, res) => {
+    setInterval(() => {
+        res.render('admin.hbs');
+    }, 2000);
+});
+
 app.get("/api/messages", (req, res) => {
     res.send(JSON.stringify(messages.getMessages()));
 });
