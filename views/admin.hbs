@@ -25,12 +25,8 @@
             return response.json();
         })
         .then(function(data) {
-            var userId = data.map(d => {
-                if(!userId.includes(d)) {
-                    return d;
-                }
-            });
-            console.log(JSON.stringify(userId));
+            var users = data.map(d => d.userId).filter((value, index, self) => self.indexOf(value) === index)});
+            console.log(JSON.stringify(users));
             // contain
         });
     </script>
