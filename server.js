@@ -31,7 +31,7 @@ app.post("/webhook", (req, res) => {
 
         if (typeof text !== 'undefined') {
             var replyText = sendMessage(text.toLowerCase());
-            replyMessage(replyToken, users.getUsers());
+            replyMessage(replyToken, users.getUsers().length);
         }
     }
     res.sendStatus(200)
