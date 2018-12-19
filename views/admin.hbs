@@ -26,9 +26,18 @@
         })
         .then(function(data) {
             var users = data.map(d => d.userId).filter((value, index, self) => self.indexOf(value) === index);
-            var message = [];
+            var messages = [];
+            for(let i = 0; i < users.length; i++) {
+                messages[i] = data.map(d => {
+                    if (d.userId == users[i]) {
+                        return d.text;
+                    }
+                });
+            }
 
             console.log(JSON.stringify(users));
+            console.log(JSON.stringify(messages));
+
         });
     </script>
 </body>
