@@ -9,6 +9,7 @@ var users = new Users();
 var messages = new Messages();
 
 app.set('view engine', 'hbs');
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
