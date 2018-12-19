@@ -23,6 +23,7 @@ app.post("/push", (req, res) => {
     var message = data.message;
 
     pushMessage(userId, message);
+    res.redirect("/");
 });
 
 app.post("/webhook", (req, res) => {
