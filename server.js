@@ -6,7 +6,7 @@ const {pushMessage, replyMessage} = require('./api/messaging-api');
 const {Users} = require('./utils/users');
 const {Messages} = require('./utils/messages');
 var users = new Users();
-var Messages = new Messages();
+var messages = new Messages();
 
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({ extended: false }));
