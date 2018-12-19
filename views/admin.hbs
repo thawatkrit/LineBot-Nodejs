@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
     <style>
-        h1, p {
+        h2, p {
             font-family: 'Kanit', sans-serif;
         }
     </style>
@@ -30,6 +30,7 @@
                 <a class="btn btn-outline-success my-2 my-sm-0" href="/admin">Admin</a>
             </div>
         </nav>
+        <br><br>
         <div id="output"></div>
     </div>
 
@@ -43,8 +44,8 @@
             var users = data.map(d => d.userId).filter((value, index, self) => self.indexOf(value) === index);
             
             for(let i = 0; i < data.length; i++) {
-                outputHTML.innerHTML += `<h1>${data[i].userId}</h1>
-                                        <p>${data[i].text}</p>`;
+                outputHTML.innerHTML += `<h3>user id: ${data[i].userId}</h3>
+                                        <p>ข้อความ: ${data[i].text}</p>`;
             }
 
 
