@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const {sendMessage} = require('./words/send-message');
+const {pushMessage, replyMessage, leaveGroup} = require('./api/messaging-api');
 
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({ extended: false }));
