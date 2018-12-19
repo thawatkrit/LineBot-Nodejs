@@ -4,7 +4,9 @@ class Users {
     }
 
     addUser(userId) {
-        this.users.push(userId);
+        if(!this.users.includes(userId)) {
+            this.users.push(userId);
+        }
         return userId;
     }
     getUsers() {
