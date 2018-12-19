@@ -21,8 +21,8 @@
             var users = data.map(d => d.userId).filter((value, index, self) => self.indexOf(value) === index);
             
             for(let i = 0; i < data.length; i++) {
-                outputHTML.innerHTML += `<h1>${data.userId}</h1>
-                                        <p>${data.text}</p>`;
+                outputHTML.innerHTML += `<h1>${data[i].userId}</h1>
+                                        <p>${data[i].text}</p>`;
             }
 
 
