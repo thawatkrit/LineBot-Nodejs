@@ -45,20 +45,24 @@
 
     <script>
         var outputHTML = document.getElementById("output");
+        var outsideData;
         setInterval(function(){
             fetch('/api/messages')
             .then(function(response) {
                 return response.json();
             })
             .then(function(data) {
-                var users = data.map(d => d.userId).filter((value, index, self) => self.indexOf(value) === index);
-                
-                for(let i = data.length-1; i >= 0; i--) {
-                    outputHTML.innerHTML += `
-                                            <div class="message-block">
-                                                <h5>user id: ${data[i].userId}</h5>
-                                                <p>ข้อความ: <span>${data[i].text}</span></p>
-                                            </div>`;
+                if(outsideData !== data) {
+                    outsideData = [...data];
+                    var users = data.map(d => d.userId).filter((value, index, self) => self.indexOf(value) === index);
+                    
+                    for(let i = data.length-1; i >= 0; i--) {
+                        outputHTML.innerHTML += `
+                                                <div class="message-block">
+                                                    <h5>user id: ${data[i].userId}</h5>
+                                                    <p>ข้อความ: <span>${data[i].text}</span></p>
+                                                </div>`;
+                    }
                 }
             });
         }, 1000);
