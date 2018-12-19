@@ -24,8 +24,12 @@ app.get("/admin", (req, res) => {
     res.render('admin.hbs');
 });
 
-app.get("/api/users", (req, res) => {
+app.get("/api/messages", (req, res) => {
     res.send(JSON.stringify(messages.getMessages()));
+});
+
+app.get("/api/users", (req, res) => {
+    res.send(JSON.stringify(users.getUsers()));
 });
 
 app.post("/push", (req, res) => {
