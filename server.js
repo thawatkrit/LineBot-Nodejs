@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/users", (req, res) => {
-    res.send(JSON.stringify(messages.getMessages()));
+    res.send(JSON.stringify(users.getUsers()));
 });
 
 app.post("/push", (req, res) => {
