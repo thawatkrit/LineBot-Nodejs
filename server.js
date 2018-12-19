@@ -19,6 +19,10 @@ app.get("/", (req, res) => {
     res.render('index.hbs');
 });
 
+app.get("/admin", (req, res) => {
+    res.render('admin.hbs');
+});
+
 app.get("/api/users", (req, res) => {
     res.send(JSON.stringify(messages.getMessages()));
 });
