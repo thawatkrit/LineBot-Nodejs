@@ -1,7 +1,13 @@
-fetch('/api/users')
-  .then(function(response) {
+fetch('https://protected-refuge-15433.herokuapp.com/api/users')
+    .then(function(response) {
     return response.json();
-  })
-  .then(function(data) {
-    console.log(JSON.stringify(data));
-  });
+    })
+    .then(function(data) {
+        var userId = data.map(d => {
+            if(!userId.includes(d)) {
+                return d;
+            }
+        });
+        console.log(JSON.stringify(userId));
+        // contain
+    });
