@@ -11,7 +11,7 @@ class Messages {
         var messages = this.messages.filter((message) => message.userId === userId);
         var textArray = messages.map((message) => message.text);
 
-        return textArray;
+        return messages;
     }
 }
 
