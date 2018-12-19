@@ -7,19 +7,12 @@
     <title>LoveChat</title>
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>User Id</th>
-                <th>Message</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div id="output">
 
-        </tbody>
-    </table>
+    </div>
 
     <script>
+        var outputHTML = document.getElementById("output");
         fetch('/api/users')
         .then(function(response) {
             return response.json();
@@ -33,6 +26,10 @@
                         return d.text;
                     }
                 });
+            }
+            for(let i = 0; i < data.length; i++) {
+                outputHTML.innerHTML += `<h1>${data.userId}</h1>
+                                        <p>${data.text}</p>`;
             }
 
             console.log(JSON.stringify(users));
