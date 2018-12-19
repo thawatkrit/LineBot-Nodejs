@@ -25,9 +25,10 @@
             return response.json();
         })
         .then(function(data) {
-            var users = data.map(d => d.userId).filter((value, index, self) => self.indexOf(value) === index)});
+            var users = data.map(d => d.userId).filter((value, index, self) => self.indexOf(value) === index);
+            var message = [];
+
             console.log(JSON.stringify(users));
-            // contain
         });
     </script>
 </body>
