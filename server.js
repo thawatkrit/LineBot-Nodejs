@@ -19,8 +19,8 @@ app.get("/", (req, res) => {
     res.render('index.hbs');
 });
 
-app.get("/users", (req, res) => {
-    return res.send(messages.getMessages);
+app.get("/api/users", (req, res) => {
+    res.send(JSON.stringify(messages.getMessages));
 });
 
 app.post("/push", (req, res) => {
