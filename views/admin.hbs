@@ -11,6 +11,11 @@
         h2, p {
             font-family: 'Kanit', sans-serif;
         }
+        .message-block {
+            background-color: lightblue;
+            margin: 10px;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
@@ -44,8 +49,11 @@
             var users = data.map(d => d.userId).filter((value, index, self) => self.indexOf(value) === index);
             
             for(let i = 0; i < data.length; i++) {
-                outputHTML.innerHTML += `<h3>user id: ${data[i].userId}</h3>
-                                        <p>ข้อความ: ${data[i].text}</p>`;
+                outputHTML.innerHTML += `
+                                        <div class="message-block">
+                                            <h3>user id: ${data[i].userId}</h3>
+                                            <p>ข้อความ: ${data[i].text}</p>
+                                        </div>`;
             }
 
 
