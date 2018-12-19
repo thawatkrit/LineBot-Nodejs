@@ -53,23 +53,7 @@ function replyMessage (replyToken, text) {
     })
 }
 
-function leaveGroup (groupId) {
-    request({
-        headers: {
-            'Authorization': `Bearer ${accessToken}`
-        },
-        url: `https://api.line.me/v2/bot/group/${groupId}/leave`,
-        method: 'POST',
-        json: true
-    }, function (err, res, body) {
-        if (err) console.log('error')
-        if (res) console.log('success')
-        if (body) console.log(body)
-    })
-}
-
 module.exports = {
     pushMessage,
-    replyMessage,
-    leaveGroup
+    replyMessage
 }

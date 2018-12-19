@@ -1,10 +1,11 @@
-const words = require('./words.js');
+var greeting = ['สวัสดี', 'หวัดดี', 'สัวสดี', 'hello', 'hi', 'หวัดดี'];
+var name = ['name', 'ชื่อ', 'ซื่อ', 'ชือ', 'ชิ่อ'];
 
 function sendMessage(text) {
-    if (words.greeting.includes(text)) {
+    if (greeting.includes(text)) {
         return 'Hello';
     }
-    else if (words.name.includes(text)) {
+    else if (name.includes(text)) {
         return 'ชื่อนานะ'
     }
     else {

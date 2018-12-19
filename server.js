@@ -17,6 +17,14 @@ app.get("/", (req, res) => {
     res.render('index.hbs');
 });
 
+app.post("/push", (req, res) => {
+    var data = req.body;
+    var userId = data.userId;
+    var message = data.message;
+
+    pushMessage(userId, message);
+});
+
 app.post("/webhook", (req, res) => {
     var type = req.body.events[0].type;
     var replyToken = req.body.events[0].replyToken;
