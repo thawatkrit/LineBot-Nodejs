@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 app.get("/admin", (req, res) => {
     res.render('admin.hbs', {
-        text: Messages.getMessages('U1cdfde31d77b135318bd76d016f834a7')[0]
+        text: messages.getMessages('U1cdfde31d77b135318bd76d016f834a7')[0]
     });
 });
 
